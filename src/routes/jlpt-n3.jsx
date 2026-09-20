@@ -1,5 +1,11 @@
-import { useEffect, useState } from 'react'
-import './App.css'
+import { createFileRoute } from "@tanstack/react-router";
+import { useState, useEffect } from 'react'
+import '../App.css'
+
+export const Route = createFileRoute("/jlpt-n3")({
+  component: JlptN3,
+});
+
 
 function KanjiApi() {
   const [kanji, setKanji] = useState('')
@@ -85,7 +91,7 @@ function KanjiApi() {
   )
 }
 
-function App() {
+function JlptN3() {
   return (
     <>
       <div className="bg-[#FFE4C4] w-full min-h-screen text-[#E04444]">
@@ -95,4 +101,4 @@ function App() {
   )
 }
 
-export default App
+export default JlptN3
