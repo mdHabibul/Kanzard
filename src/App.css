@@ -1,1 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500&display=block');
 @import "tailwindcss";
+
+@theme {
+    --color-custom-text: #343230;
+    --color-custom-background: #fcfaf6;
+    --color-custom-primary: #b98f92;
+    --color-custom-secondary: #eee5dc;
+    --color-custom-accent: #ead6d5;
+
+    --font-kanji: "Zen Kaku Gothic New", sans-serif;
+}

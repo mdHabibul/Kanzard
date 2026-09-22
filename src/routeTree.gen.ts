@@ -10,11 +10,25 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as HomeRouteImport } from './routes/home'
+import { Route as JlptN1RouteImport } from './routes/jlpt-n1'
+import { Route as JlptN2RouteImport } from './routes/jlpt-n2'
 import { Route as JlptN3RouteImport } from './routes/jlpt-n3'
+import { Route as JlptN4RouteImport } from './routes/jlpt-n4'
+import { Route as JlptN5RouteImport } from './routes/jlpt-n5'
 
 const HomeRoute = HomeRouteImport.update({
   id: '/home',
   path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JlptN1Route = JlptN1RouteImport.update({
+  id: '/jlpt-n1',
+  path: '/jlpt-n1',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JlptN2Route = JlptN2RouteImport.update({
+  id: '/jlpt-n2',
+  path: '/jlpt-n2',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JlptN3Route = JlptN3RouteImport.update({
@@ -22,31 +36,65 @@ const JlptN3Route = JlptN3RouteImport.update({
   path: '/jlpt-n3',
   getParentRoute: () => rootRouteImport,
 } as any)
+const JlptN4Route = JlptN4RouteImport.update({
+  id: '/jlpt-n4',
+  path: '/jlpt-n4',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JlptN5Route = JlptN5RouteImport.update({
+  id: '/jlpt-n5',
+  path: '/jlpt-n5',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/home': typeof HomeRoute
+  '/jlpt-n1': typeof JlptN1Route
+  '/jlpt-n2': typeof JlptN2Route
   '/jlpt-n3': typeof JlptN3Route
+  '/jlpt-n4': typeof JlptN4Route
+  '/jlpt-n5': typeof JlptN5Route
 }
 export interface FileRoutesByTo {
   '/home': typeof HomeRoute
+  '/jlpt-n1': typeof JlptN1Route
+  '/jlpt-n2': typeof JlptN2Route
   '/jlpt-n3': typeof JlptN3Route
+  '/jlpt-n4': typeof JlptN4Route
+  '/jlpt-n5': typeof JlptN5Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/home': typeof HomeRoute
+  '/jlpt-n1': typeof JlptN1Route
+  '/jlpt-n2': typeof JlptN2Route
   '/jlpt-n3': typeof JlptN3Route
+  '/jlpt-n4': typeof JlptN4Route
+  '/jlpt-n5': typeof JlptN5Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/home' | '/jlpt-n3'
+  fullPaths:
+    '/home' | '/jlpt-n1' | '/jlpt-n2' | '/jlpt-n3' | '/jlpt-n4' | '/jlpt-n5'
   fileRoutesByTo: FileRoutesByTo
-  to: '/home' | '/jlpt-n3'
-  id: '__root__' | '/home' | '/jlpt-n3'
+  to: '/home' | '/jlpt-n1' | '/jlpt-n2' | '/jlpt-n3' | '/jlpt-n4' | '/jlpt-n5'
+  id:
+    | '__root__'
+    | '/home'
+    | '/jlpt-n1'
+    | '/jlpt-n2'
+    | '/jlpt-n3'
+    | '/jlpt-n4'
+    | '/jlpt-n5'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   HomeRoute: typeof HomeRoute
+  JlptN1Route: typeof JlptN1Route
+  JlptN2Route: typeof JlptN2Route
   JlptN3Route: typeof JlptN3Route
+  JlptN4Route: typeof JlptN4Route
+  JlptN5Route: typeof JlptN5Route
 }
 
 declare module '@tanstack/react-router' {
@@ -58,6 +106,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/jlpt-n1': {
+      id: '/jlpt-n1'
+      path: '/jlpt-n1'
+      fullPath: '/jlpt-n1'
+      preLoaderRoute: typeof JlptN1RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jlpt-n2': {
+      id: '/jlpt-n2'
+      path: '/jlpt-n2'
+      fullPath: '/jlpt-n2'
+      preLoaderRoute: typeof JlptN2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/jlpt-n3': {
       id: '/jlpt-n3'
       path: '/jlpt-n3'
@@ -65,12 +127,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JlptN3RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/jlpt-n4': {
+      id: '/jlpt-n4'
+      path: '/jlpt-n4'
+      fullPath: '/jlpt-n4'
+      preLoaderRoute: typeof JlptN4RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jlpt-n5': {
+      id: '/jlpt-n5'
+      path: '/jlpt-n5'
+      fullPath: '/jlpt-n5'
+      preLoaderRoute: typeof JlptN5RouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   HomeRoute: HomeRoute,
+  JlptN1Route: JlptN1Route,
+  JlptN2Route: JlptN2Route,
   JlptN3Route: JlptN3Route,
+  JlptN4Route: JlptN4Route,
+  JlptN5Route: JlptN5Route,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

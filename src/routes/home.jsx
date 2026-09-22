@@ -11,11 +11,11 @@ function Home() {
         <>
             <p className="text-center">Select your level</p>
             <div className="flex justify-center gap-5">
-                <button onClick={() => navigate({ to: "/" })}>N1</button>
-                <button onClick={() => navigate({ to: "/" })}>N2</button>
-                <button onClick={() => navigate({ to: "/jlpt-n3" })}>N3</button>
-                <button onClick={() => navigate({ to: "/" })}>N4</button>
-                <button onClick={() => navigate({ to: "/" })}>N5</button>
+                <button className="text-custom-text bg-custom-primary" onClick={() => navigate({ to: "/jlpt-n1" })}>N1</button>
+                <button onClick={() => navigate({ to: "/JLPT-N2" })}>N2</button>
+                <button onClick={() => navigate({ to: "/JLPT-N3" })}>N3</button>
+                <button onClick={() => navigate({ to: "/JLPT-N4" })}>N4</button>
+                <button onClick={() => navigate({ to: "/JLPT-N5" })}>N5</button>
             </div>
         </>
     )
