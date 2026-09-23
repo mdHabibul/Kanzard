@@ -26,10 +26,10 @@ function Root() {
     }
     return (
         <>
-            <div className="flex justify-between px-6 mb-10">
-                <h1>Kanzard</h1>
+            <div className="font-english flex justify-between items-center px-6 bg-custom-navbar-bg text-custom-navbar-text">
+                <h1 className="text-custom-navbar-title pl-3 text-5xl">Kanzard</h1>
                 <div className="flex justify-around gap-30">
-                    <button onClick={() => navigate({ to: "/home" })}>Home</button>
+                    <button onClick={() => navigate({ to: "/home" })} className="px-4 py-2 hover:bg-custom-navbar-hover hover:rounded-2xl hover:cursor-pointer active:bg-custom-navbar-active">Home</button>
                     <button>1</button>
                     <button>2</button>
                 </div>

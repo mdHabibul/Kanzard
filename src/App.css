@@ -1,12 +1,169 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
-    --color-custom-text: #343230;
-    --color-custom-background: #fcfaf6;
-    --color-custom-primary: #b98f92;
-    --color-custom-secondary: #eee5dc;
-    --color-custom-accent: #ead6d5;
+    /* ========================================
+       MAIN
+    ======================================== */
+    --color-custom-background: #E4EBDD;
+    --color-custom-background-alt: #D8E2D2;
 
+    --color-custom-text: #1C2B22;
+    --color-custom-text-muted: #5E6D63;
+    --color-custom-text-light: #829087;
+    --color-custom-text-inverse: #F3F6EE;
+
+
+    /* ========================================
+       PRIMARY — EMERALD
+    ======================================== */
+    --color-custom-primary: #2F7655;
+    --color-custom-primary-hover: #276548;
+    --color-custom-primary-active: #1E523A;
+
+    --color-custom-primary-light: #63A07F;
+    --color-custom-primary-lighter: #9FC9AF;
+    --color-custom-primary-subtle: #D5E7D9;
+
+    --color-custom-primary-dark: #174431;
+
+
+    /* ========================================
+       SECONDARY — SAGE
+    ======================================== */
+    --color-custom-secondary: #C9D7C6;
+    --color-custom-secondary-hover: #B9CBB8;
+    --color-custom-secondary-active: #A7BDA7;
+
+    --color-custom-secondary-light: #DDE7DA;
+    --color-custom-secondary-dark: #8FA58F;
+
+
+    /* ========================================
+       ACCENT — SOFT GOLD
+    ======================================== */
+    --color-custom-accent: #C99A3D;
+    --color-custom-accent-hover: #B78732;
+    --color-custom-accent-active: #A87628;
+
+    --color-custom-accent-light: #EBD59D;
+    --color-custom-accent-subtle: #F3E8C8;
+
+
+    /* ========================================
+       MINT
+    ======================================== */
+    --color-custom-mint: #83B99C;
+    --color-custom-mint-hover: #6FA987;
+    --color-custom-mint-active: #5B9473;
+    --color-custom-mint-light: #CFE6D6;
+    --color-custom-mint-subtle: #E1EEE3;
+
+
+    /* ========================================
+       DEEP FOREST
+    ======================================== */
+    --color-custom-forest: #163B2D;
+    --color-custom-forest-hover: #1D4C39;
+    --color-custom-forest-active: #102E23;
+
+    --color-custom-forest-light: #315D4B;
+    --color-custom-forest-muted: #718B7B;
+
+
+    /* ========================================
+       NAVBAR
+    ======================================== */
+    --color-custom-navbar-bg: #163B2D;
+    --color-custom-navbar-hover: #1D4C39;
+    --color-custom-navbar-active: #2F7655;
+
+    --color-custom-navbar-title: #E8EEE2;
+    --color-custom-navbar-text: #DCE8DE;
+    --color-custom-navbar-muted: #9CB4A4;
+
+    --color-custom-navbar-border: #315D4B;
+
+
+    /* ========================================
+       SURFACES / CARDS
+    ======================================== */
+    --color-custom-surface: #EEF3E9;
+    --color-custom-surface-hover: #F2F6ED;
+    --color-custom-surface-active: #E4ECE1;
+
+    --color-custom-surface-alt: #DCE6D9;
+    --color-custom-surface-dark: #CBD8CA;
+
+
+    /* ========================================
+       BORDERS
+    ======================================== */
+    --color-custom-border: #C7D3C5;
+    --color-custom-border-hover: #AEBEAD;
+    --color-custom-border-focus: #2F7655;
+    --color-custom-border-dark: #829784;
+
+
+    /* ========================================
+       INPUTS
+    ======================================== */
+    --color-custom-input-bg: #E9EFE3;
+    --color-custom-input-hover: #E2EADF;
+    --color-custom-input-focus: #F0F4EB;
+    --color-custom-input-border: #C5D2C4;
+    --color-custom-input-placeholder: #8D9B91;
+
+
+    /* ========================================
+       SUCCESS
+    ======================================== */
+    --color-custom-success: #34845B;
+    --color-custom-success-hover: #2B704C;
+    --color-custom-success-light: #D5E8DA;
+    --color-custom-success-subtle: #E5F0E7;
+
+
+    /* ========================================
+       WARNING
+    ======================================== */
+    --color-custom-warning: #AD7930;
+    --color-custom-warning-hover: #936526;
+    --color-custom-warning-light: #EBDCB9;
+    --color-custom-warning-subtle: #F2E9D2;
+
+
+    /* ========================================
+       DANGER
+    ======================================== */
+    --color-custom-danger: #AD5959;
+    --color-custom-danger-hover: #934848;
+    --color-custom-danger-light: #EBD2D2;
+    --color-custom-danger-subtle: #F2E2E2;
+
+
+    /* ========================================
+       INFO
+    ======================================== */
+    --color-custom-info: #4E7D88;
+    --color-custom-info-hover: #416A74;
+    --color-custom-info-light: #D5E5E7;
+    --color-custom-info-subtle: #E5EFF0;
+
+
+    /* ========================================
+       PURPLE — OPTIONAL CONTRAST
+    ======================================== */
+    --color-custom-purple: #706A91;
+    --color-custom-purple-hover: #5F5A7C;
+    --color-custom-purple-light: #DEDCEA;
+
+
+    /* ========================================
+       FONT
+    ======================================== */
     --font-kanji: "Zen Kaku Gothic New", sans-serif;
+    --font-english: "Fraunces", serif;
+    --font-meaningText: "DM Serif Display", serif;
 }
