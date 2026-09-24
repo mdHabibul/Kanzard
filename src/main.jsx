@@ -9,8 +9,8 @@ import SelectLesson from './selectLesson.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <RouterProvider router={router} /> */}
+    <RouterProvider router={router} />
     {/* <App /> */}
-    <SelectLesson />
+    {/* <SelectLesson /> */}
   </StrictMode>,
 )

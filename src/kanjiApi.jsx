@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function KanjiApi({ level = 3 }) {
+function KanjiApi({ level }) {
   const [data, setData] = useState([]);
   const [kanji, setKanji] = useState({
     moji: null,
@@ -37,7 +37,9 @@ function KanjiApi({ level = 3 }) {
       showOnBtn: true,
       showMeaningBtn: true,
     }));
+
   };
+  console.log(kanji)
 
   const fetchKanji = async () => {
     try {
@@ -91,7 +93,23 @@ function KanjiApi({ level = 3 }) {
 
   return (
     <div className="bg-custom-background w-full min-h-screen text-custom-text font-english">
-      {kanji.moji && (
+
+      <div className="w-230 m-auto">
+        <div className="flex justify-between items-center">
+          <div className="mt-15">
+            <p>Kanji practice</p>
+            <h1>Daily Kanji</h1>
+          </div>
+          <div className="mt-15 bg-custom-border-focus rounded-3xl py-2 px-5">Jlpt</div>
+        </div>
+        <div className="border-1 border-custom-border mt-20 pt-20 rounded-3xl shadow-2xl">
+          <p className="text-center">Recognize this character</p>
+          <div className="py-20 mx-70 my-10 text-9xl bg-custom-border text-custom-forest-active text-center rounded-3xl">K</div>
+
+        </div>
+      </div>
+
+      {/* {kanji.moji && (
         <div className="px-10 py-10 text-center rounded-3xl mx-7">
           <div className="bg-custom-accent text-custom-text font-kanji h-fit w-fit text-9xl p-10 mx-auto mb-7">{kanji.moji}</div>
           <div className="flex justify-center gap-40 my-10">
@@ -102,24 +120,24 @@ function KanjiApi({ level = 3 }) {
             {kanji.showKunBtn && <button className="text-custom-text-muted hover:text-custom-primary transition-colors" onClick={handleKunButtonClick}>
               <div className="flex justify-center gap-2">
                 <p>Kun Reading</p>
-                <svg xmlns="http://www.w3.org/2000/svg" className="pt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" className="pt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg>
               </div></button>}
-            {kanji.showKun && <p className="whitespace-pre-line text-custom-text"><div className="bg-custom-forest-light border-custom-border-hover border-2 p-3 rounded-2xl text-custom-input-hover">Kun youmi {'\n' + kanji.kunArray.join('\n')}</div></p>}
+            {kanji.showKun && <p className="whitespace-pre-line text-custom-text"><div className="bg-custom-forest-light border-custom-border-hover border-2 p-3 rounded-2xl text-custom-input-hover">Kun youmi <br />{kanji.kunArray.length === 0 ? "No kun reading found!" : kanji.kunArray.join('\n')}</div></p>}
             {kanji.showOnBtn && <button className="text-custom-text-muted hover:text-custom-primary transition-colors" onClick={handleOnButtonClick}>
               <div className="flex justify-center gap-2">
                 <p>On Reading</p>
-                <svg xmlns="http://www.w3.org/2000/svg" className="pt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" className="pt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg>
               </div></button>}
-            {kanji.showOn && <p className="whitespace-pre-line text-custom-text"><div className="bg-custom-forest-light border-custom-border-hover border-2 p-3 rounded-2xl text-custom-input-hover">On youmi {'\n' + kanji.onArray.join('\n')}</div></p>}
+            {kanji.showOn && <p className="whitespace-pre-line text-custom-text"><div className="bg-custom-forest-light border-custom-border-hover border-2 p-3 rounded-2xl text-custom-input-hover">On youmi <br />{kanji.onArray.length === 0 ? "No on reading found!" : kanji.onArray.join('\n')}</div></p>}
             {kanji.showMeaningBtn && <button className="text-custom-text-muted hover:text-custom-primary transition-colors" onClick={handleMeaningButtonClick}>
               <div className="flex justify-center gap-2">
                 <p>Meaning</p>
-                <svg xmlns="http://www.w3.org/2000/svg" className="pt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" className="pt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg>
               </div></button>}
-            {kanji.showMeaning && <div className="whitespace-pre-line font-medium bg-custom-forest-light border-custom-border-hover border-2 p-3 rounded-2xl text-custom-input-hover">Meaning <p className="font-extralight font-meaningText">{kanji.meaning.join('\n')}</p></div>}
+            {kanji.showMeaning && <div className="whitespace-pre-line font-medium bg-custom-forest-light border-custom-border-hover border-2 p-3 rounded-2xl text-custom-input-hover">Meaning <p className="font-extralight font-meaningText">{kanji.meaning.length === 0 ? "No meaning found!" : kanji.meaning.join('\n')}</p></div>}
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
