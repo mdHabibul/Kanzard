@@ -5,7 +5,7 @@ function LevelBtn({ level, subText }) {
 
     return (
         <>
-            <button className="h-48 w-80 rounded-3xl bg-custom-primary hover:cursor-pointer hover:bg-custom-primary-light active:bg-custom-primary-dark" onClick={() => navigate({ to: `/jlpt-n${level}` })}>
+            <button className="h-48 w-80 rounded-3xl hover:shadow-2xl bg-custom-primary-hover hover:cursor-pointer hover:bg-custom-primary active:bg-custom-primary-dark" onClick={() => navigate({ to: `/jlpt-n${level}` })}>
                 <div className="flex justify-between px-10 pt-10 pb-5">
                     <div className="text-left">
                         <p className="text-3xl mb-2">N{level}</p>
