@@ -10,7 +10,7 @@ function LevelBtn({ level, subText }) {
                     <p className="text-3xl mb-2 text-custom-text">N{level}</p>
                     <p className="font-sans font-extralight text-custom-text-muted">{subText}</p>
                 </div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" className="text-custom-text-muted"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                <span className="text-custom-text-muted">↗</span>
             </div>
             <hr className="border-custom-border-hover" />
             <div className="flex justify-between py-3 px-5">
