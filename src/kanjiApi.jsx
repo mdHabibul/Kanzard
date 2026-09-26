@@ -92,52 +92,106 @@ function KanjiApi({ level }) {
   };
 
   return (
-    <div className="bg-custom-background w-full min-h-screen text-custom-text font-english">
-
-      <div className="w-230 m-auto">
-        <div className="flex justify-between items-center">
-          <div className="mt-15">
-            <p>Kanji practice</p>
-            <h1>Daily Kanji</h1>
+    <div className="min-h-screen w-full bg-custom-background text-custom-text font-english">
+      <div className="mx-auto max-w-5xl px-6 py-12">
+        <div className="mb-10 flex items-center justify-between">
+          <div>
+            <p className="mb-2 text-xs font-semibold uppercase text-custom-text-muted">Kanji Practice</p>
+            <h1 className="text-3xl font-semibold">Daily Kanji</h1>
           </div>
-          <div className="mt-15 bg-custom-border-focus rounded-3xl py-2 px-5">Jlpt</div>
+          <div className="rounded-full border border-custom-border-hover bg-custom-secondary px-4 py-2">
+            <span className="text-xs font-semibold uppercase text-custom-text-muted">JLPT N{level}</span>
+          </div>
         </div>
-        <div className="border-1 border-custom-border mt-20 pt-20 rounded-3xl shadow-2xl">
-          <p className="text-center">Recognize this character</p>
-          <div className="py-20 mx-70 my-10 text-9xl bg-custom-border text-custom-forest-active text-center rounded-3xl">K</div>
+        {kanji.moji && (
+          <div className="overflow-hidden rounded-3xl border border-custom-border-hover bg-custom-secondary shadow-2xl">
+            <div className="flex flex-col items-center px-6 pb-12 pt-12">
+              <p className="mb-8 text-xs font-medium uppercase text-custom-text-muted">Recognize the character</p>
+              <div className="flex h-72 w-72 items-center justify-center rounded-3xl border border-custom-border-hover bg-custom-background shadow-inner">
+                <span className="font-kanji text-[11rem] font-normal leading-none text-custom-text">{kanji.moji}</span>
+              </div>
+              <p className="mt-8 text-sm text-custom-text-muted">Take your time. Study at your own pace.</p>
+            </div>
+            <div className="border-t border-custom-border-hover px-6 py-6">
+              <div className="flex justify-center gap-3">
+                <button onClick={setKanji} className="rounded-xl border border-custom-border-hover bg-custom-background px-8 py-3 text-sm font-medium text-custom-text-muted hover:border-custom-primary hover:text-custom-text">Clear</button>
+                <button onClick={nextKanji} className="rounded-xl bg-custom-primary px-10 py-3 text-sm font-semibold text-white shadow-lg hover:opacity-90 active:scale-[0.98]">
+                  Next Kanji
+                  <span className="ml-3">→</span>
+                </button>
+              </div>
+            </div>
+            <div className="border-t border-custom-border-hover">
+              <div className="flex">
+                <div className="w-1/3 border-r border-custom-border-hover p-8">
+                  <div className="mb-5 flex items-center justify-between">
+                    <span className="text-xs font-semibold text-custom-text-muted">KUN READING</span>
+                    <span className="text-sm font-japanese text-custom-text-muted">訓読み</span>
+                  </div>
+                  {kanji.showKun ? (
+                    <div className="min-h-24">
+                      <p className="mb-3 text-xs text-custom-text-muted">Japanese reading</p>
 
-        </div>
+                      <div className="whitespace-pre-line space-y-2 text-lg font-medium text-custom-text">
+                        {kanji.kunArray.length > 0 ? kanji.kunArray.join("\n") : "No information available"}
+                      </div>
+                    </div>
+                  ) : (
+                    <button onClick={handleKunButtonClick} className="flex w-full items-center justify-between rounded-xl border border-custom-border-hover bg-custom-background px-4 py-4 text-left hover:border-custom-primary">
+                      <span className="text-sm font-medium text-custom-text-muted">Reveal</span>
+                      <span className="text-custom-text-muted">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+                      </span>
+                    </button>
+                  )}
+                </div>
+                <div className="w-1/3 border-r border-custom-border-hover p-8">
+                  <div className="mb-5 flex items-center justify-between">
+                    <span className="text-xs font-semibold text-custom-text-muted">ON READING</span>
+                    <span className="text-sm font-japanese text-custom-text-muted">音読み</span>
+                  </div>
+                  {kanji.showOn ? (
+                    <div className="min-h-24">
+                      <p className="mb-3 text-xs text-custom-text-muted">Chinese-derived reading</p>
+                      <div className="whitespace-pre-line space-y-2 text-lg font-medium text-custom-text">
+                        {kanji.onArray.length > 0 ? kanji.onArray.join("\n") : "No information available"}
+                      </div>
+                    </div>
+                  ) : (
+                    <button onClick={handleOnButtonClick} className="flex w-full items-center justify-between rounded-xl border border-custom-border-hover bg-custom-background px-4 py-4 text-left hover:border-custom-primary">
+                      <span className="text-sm font-medium text-custom-text-muted">Reveal</span>
+                      <span className="text-custom-text-muted">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+                      </span>
+                    </button>
+                  )}
+                </div>
+                <div className="w-1/3 p-8">
+                  <div className="mb-5 flex items-center justify-between">
+                    <span className="text-xs font-semibold text-custom-text-muted">MEANING</span>
+                    <span className="text-sm font-japanese text-custom-text-muted">意味</span>
+                  </div>
+                  {kanji.showMeaning ? (
+                    <div className="min-h-24">
+                      <p className="mb-3 text-xs text-custom-text-muted">English meaning</p>
+                      <div className="whitespace-pre-line space-y-2 text-lg font-medium text-custom-text">
+                        {kanji.meaning.length > 0 ? kanji.meaning.join("\n") : "No information available"}
+                      </div>
+                    </div>
+                  ) : (
+                    <button onClick={handleMeaningButtonClick} className="flex w-full items-center justify-between rounded-xl border border-custom-border-hover bg-custom-background px-4 py-4 text-left hover:border-custom-primary">
+                      <span className="text-sm font-medium text-custom-text-muted">Reveal</span>
+                      <span className="text-custom-text-muted">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+                      </span>
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-
-      {/* {kanji.moji && (
-        <div className="px-10 py-10 text-center rounded-3xl mx-7">
-          <div className="bg-custom-accent text-custom-text font-kanji h-fit w-fit text-9xl p-10 mx-auto mb-7">{kanji.moji}</div>
-          <div className="flex justify-center gap-40 my-10">
-            <button onClick={setKanji} className="py-2 px-4 rounded bg-custom-secondary text-custom-text hover:bg-custom-secondary-hover active:bg-custom-secondary-active transition-colors">Clear</button>
-            <button onClick={nextKanji} className="py-2 px-4 rounded bg-custom-primary text-white hover:bg-custom-primary-hover active:bg-custom-primary-active transition-colors">Next Kanji</button>
-          </div>
-          <div className="flex justify-around items-center">
-            {kanji.showKunBtn && <button className="text-custom-text-muted hover:text-custom-primary transition-colors" onClick={handleKunButtonClick}>
-              <div className="flex justify-center gap-2">
-                <p>Kun Reading</p>
-                <svg xmlns="http://www.w3.org/2000/svg" className="pt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg>
-              </div></button>}
-            {kanji.showKun && <p className="whitespace-pre-line text-custom-text"><div className="bg-custom-forest-light border-custom-border-hover border-2 p-3 rounded-2xl text-custom-input-hover">Kun youmi <br />{kanji.kunArray.length === 0 ? "No kun reading found!" : kanji.kunArray.join('\n')}</div></p>}
-            {kanji.showOnBtn && <button className="text-custom-text-muted hover:text-custom-primary transition-colors" onClick={handleOnButtonClick}>
-              <div className="flex justify-center gap-2">
-                <p>On Reading</p>
-                <svg xmlns="http://www.w3.org/2000/svg" className="pt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg>
-              </div></button>}
-            {kanji.showOn && <p className="whitespace-pre-line text-custom-text"><div className="bg-custom-forest-light border-custom-border-hover border-2 p-3 rounded-2xl text-custom-input-hover">On youmi <br />{kanji.onArray.length === 0 ? "No on reading found!" : kanji.onArray.join('\n')}</div></p>}
-            {kanji.showMeaningBtn && <button className="text-custom-text-muted hover:text-custom-primary transition-colors" onClick={handleMeaningButtonClick}>
-              <div className="flex justify-center gap-2">
-                <p>Meaning</p>
-                <svg xmlns="http://www.w3.org/2000/svg" className="pt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg>
-              </div></button>}
-            {kanji.showMeaning && <div className="whitespace-pre-line font-medium bg-custom-forest-light border-custom-border-hover border-2 p-3 rounded-2xl text-custom-input-hover">Meaning <p className="font-extralight font-meaningText">{kanji.meaning.length === 0 ? "No meaning found!" : kanji.meaning.join('\n')}</p></div>}
-          </div>
-        </div>
-      )} */}
     </div>
   );
 }
