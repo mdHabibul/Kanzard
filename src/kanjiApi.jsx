@@ -115,10 +115,7 @@ function KanjiApi({ level }) {
             <div className="border-t border-custom-border-hover px-6 py-6">
               <div className="flex justify-center gap-3">
                 <button onClick={setKanji} className="rounded-xl border border-custom-border-hover bg-custom-background px-8 py-3 text-sm font-medium text-custom-text-muted hover:border-custom-primary hover:text-custom-text">Clear</button>
-                <button onClick={nextKanji} className="rounded-xl bg-custom-primary px-10 py-3 text-sm font-semibold text-white shadow-lg hover:opacity-90 active:scale-[0.98]">
-                  Next Kanji
-                  <span className="ml-3">→</span>
-                </button>
+                <button onClick={nextKanji} className="rounded-xl bg-custom-primary px-10 py-3 text-sm font-semibold text-white shadow-lg hover:opacity-90 active:scale-[0.98]">Next Kanji<span className="ml-3">→</span></button>
               </div>
             </div>
             <div className="border-t border-custom-border-hover">
@@ -131,7 +128,6 @@ function KanjiApi({ level }) {
                   {kanji.showKun ? (
                     <div className="min-h-24">
                       <p className="mb-3 text-xs text-custom-text-muted">Japanese reading</p>
-
                       <div className="whitespace-pre-line space-y-2 text-lg font-medium text-custom-text">
                         {kanji.kunArray.length > 0 ? kanji.kunArray.join("\n") : "No information available"}
                       </div>

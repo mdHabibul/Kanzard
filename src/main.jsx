@@ -4,7 +4,7 @@ import { RouterProvider } from "@tanstack/react-router";
 import router from './router.jsx'
 import './index.css'
 import App from './App.jsx'
-import SelectLesson from './selectLesson.jsx';
+// import SelectLesson from './routes/selectLesson.jsx';
 // import Home from './routes/home.jsx'
 
 createRoot(document.getElementById('root')).render(

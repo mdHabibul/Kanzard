@@ -4,7 +4,7 @@ function LevelBtn({ level, subText }) {
     const navigate = useNavigate();
 
     return (
-        <button className="h-48 w-70 border border-custom-border-hover border-1 rounded-3xl hover:shadow-2xl bg-custom-secondary hover:cursor-pointer hover:bg-custom-secondary-hover active:bg-custom-secondary" onClick={() => navigate({ to: `/jlpt-n${level}` })}>
+        <button className="h-48 w-70 border border-custom-border-hover border-1 rounded-3xl hover:shadow-2xl bg-custom-secondary transition-all duration-200 hover:cursor-pointer hover:-translate-y-2 hover:bg-custom-secondary-hover active:bg-custom-mint-hover" onClick={() => navigate({ to: "/selectLesson", search: { level } })}>
             <div className="flex justify-between px-10 pt-10 pb-5">
                 <div className="text-left">
                     <p className="text-3xl mb-2 text-custom-text">N{level}</p>
